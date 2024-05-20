@@ -9,8 +9,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     gap: 40,
-    fontFamily: "Montserrat",
-    fontSize: 16,
   },
   logo: {
     width: 90,
@@ -65,6 +63,14 @@ const styles = StyleSheet.create({
     fontFamily: "MontserratBold",
     fontSize: 16,
     lineHeight: 20,
+  },
+
+  errorText: {
+    color: "red",
+    fontFamily: "Montserrat",
+    fontSize: 12,
+    lineHeight: 16,
+    paddingHorizontal: 20,
   },
 });
 

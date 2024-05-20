@@ -8,6 +8,8 @@ const Colors = {
   TEXT_MUTE: "rgba(255, 255, 255, 0.5)",
 
   BG_INPUT: "rgba(255, 255, 255, 0.18)",
+
+  ERROR: "#ea2c2c"
 };
 
 export { Colors };

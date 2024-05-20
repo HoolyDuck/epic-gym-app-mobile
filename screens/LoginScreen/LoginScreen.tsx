@@ -15,7 +15,11 @@ type LoginFormData = {
 };
 
 export const LoginScreen = () => {
-  const { control, handleSubmit } = useForm<LoginFormData>({
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginFormData>({
     defaultValues: {
       email: "",
       password: "",
@@ -33,11 +37,15 @@ export const LoginScreen = () => {
           placeholder="Email"
           name="email"
           control={control}
+          rules={{ required: "Email is required" }}
+          error={errors.email?.message}
         />
         <Input
           placeholder="Password"
           name="password"
           control={control}
+          rules={{ required: "Password is required" }}
+          error={errors.password?.message}
         />
         <Text style={styles.forgotPassword}>Forgot password?</Text>
       </View>

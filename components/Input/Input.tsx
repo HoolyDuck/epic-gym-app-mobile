@@ -5,29 +5,42 @@ import {
   ControllerProps,
   FieldValues,
 } from "react-hook-form";
-import { StyleSheet, TextInput, TextInputProps } from "react-native";
+import {
+  StyleSheet,
+  TextInput,
+  TextInputProps,
+  Text,
+  View,
+} from "react-native";
 
 type Props<T extends FieldValues> = Partial<ControllerProps<T>>;
 
 type InputProps = Props<any> &
   TextInputProps & {
     name: string;
+    error?: string;
   };
 
 const Input = (props: InputProps) => {
-  const { control, rules, name, ...rest } = props;
+  const { control, rules, name, error, ...rest } = props;
 
   return (
     <Controller
       control={control}
       render={({ field: { onChange, value } }) => (
-        <TextInput
-          style={styles.input}
-          onChangeText={onChange}
-          value={value}
-          placeholderTextColor={Colors.TEXT_MUTE}
-          {...rest}
-        />
+        <View style={styles.inputContainer}>
+          <TextInput
+            style={{
+              ...styles.input,
+              ...(error ? styles.inputError : {}),
+            }}
+            onChangeText={onChange}
+            value={value}
+            placeholderTextColor={Colors.TEXT_MUTE}
+            {...rest}
+          />
+          {error && <Text style={styles.errorText}>{error}</Text>}
+        </View>
       )}
       name={name}
       rules={rules}
@@ -36,6 +49,14 @@ const Input = (props: InputProps) => {
 };
 
 const styles = StyleSheet.create({
+  inputContainer: {
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    gap: 5,
+    position: "relative",
+  },
+
   input: {
     paddingHorizontal: 30,
     paddingVertical: 15,
@@ -46,6 +67,22 @@ const styles = StyleSheet.create({
     fontFamily: "Montserrat",
     fontSize: 16,
     lineHeight: 20,
+    borderWidth: 1,
+    borderColor: Colors.BG_INPUT,
+  },
+
+  inputError: {
+    borderColor: Colors.ERROR,
+  },
+
+  errorText: {
+    position: "absolute",
+    color: Colors.ERROR,
+    fontSize: 12,
+    lineHeight: 16,
+    fontFamily: "Montserrat",
+    paddingLeft: 20,
+    bottom: -17,
   },
 });
 

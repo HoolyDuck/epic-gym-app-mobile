@@ -24,6 +24,7 @@ const Button = (props: ButtonProps) => {
   const btnStyles = {
     ...styles.button,
     backgroundColor: bgColor,
+    borderColor: bgColor,
   };
 
   return (
@@ -42,6 +43,7 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     width: "100%",
     alignItems: "center",
+    borderWidth: 1,
   },
 
   buttonText: {
