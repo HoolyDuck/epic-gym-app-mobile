@@ -1,18 +1,36 @@
 import { Colors } from "@/constants";
-import { StyleSheet, TextInput } from "react-native";
+import {
+  Control,
+  Controller,
+  ControllerProps,
+  FieldValues,
+} from "react-hook-form";
+import { StyleSheet, TextInput, TextInputProps } from "react-native";
 
-type InputProps = {
-  placeholder: string;
-  value: string;
-  onChange: (text: string) => void;
-};
+type Props<T extends FieldValues> = Partial<ControllerProps<T>>;
+
+type InputProps = Props<any> &
+  TextInputProps & {
+    name: string;
+  };
 
 const Input = (props: InputProps) => {
+  const { control, rules, name, ...rest } = props;
+
   return (
-    <TextInput
-      style={styles.input}
-      placeholder={props.placeholder}
-      placeholderTextColor={Colors.TEXT_MUTE}
+    <Controller
+      control={control}
+      render={({ field: { onChange, value } }) => (
+        <TextInput
+          style={styles.input}
+          onChangeText={onChange}
+          value={value}
+          placeholderTextColor={Colors.TEXT_MUTE}
+          {...rest}
+        />
+      )}
+      name={name}
+      rules={rules}
     />
   );
 };
@@ -20,7 +38,7 @@ const Input = (props: InputProps) => {
 const styles = StyleSheet.create({
   input: {
     paddingHorizontal: 30,
-    paddingVertical: 20,
+    paddingVertical: 15,
     borderRadius: 100,
     width: "100%",
     backgroundColor: Colors.BG_INPUT,
@@ -28,8 +46,6 @@ const styles = StyleSheet.create({
     fontFamily: "Montserrat",
     fontSize: 16,
     lineHeight: 20,
-    borderWidth: 1,
-    borderColor: Colors.BG_INPUT,
   },
 });
 

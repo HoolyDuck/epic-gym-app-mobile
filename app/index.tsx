@@ -1,30 +1,32 @@
 import { StyleSheet, Text, View } from "react-native";
-import { Link } from "expo-router";
+import { Link, SplashScreen } from "expo-router";
 import { Colors } from "@/constants";
-import { Button, ButtonVariants, Input } from "@/components";
+import { useCallback } from "react";
 import { useFonts } from "expo-font";
 
 const Index = () => {
-  const [fontsLoaded] = useFonts({
-    Montserrat: require("@/assets/fonts/Montserrat-Regular.ttf"),
-    MontserratBold: require("@/assets/fonts/Montserrat-Bold.ttf"),
+  const [loaded, error] = useFonts({
+    Montserrat: require("@/assets/fonts/Montserrat.ttf"),
+    MontserratBold: require("@/assets/fonts/MontserratBold.ttf"),
   });
 
+  const onLayoutRootView = useCallback(async () => {
+    if (loaded || error) {
+      await SplashScreen.hideAsync();
+    }
+  }, [loaded, error]);
+
+  if (!loaded) {
+    return null;
+  }
+
   return (
-    <View style={styles.container}>
+    <View
+      style={styles.container}
+      onLayout={onLayoutRootView}
+    >
+      <Text>WellCum</Text>
       <Link href="/login">Login</Link>
-      <Button onClick={() => console.log("Button clicked")}>Login</Button>
-      <Button
-        onClick={() => console.log("Button clicked")}
-        variant={ButtonVariants.SECONDARY}
-      >
-        Login
-      </Button>
-      <Input
-        placeholder="Username"
-        value=""
-        onChange={(text) => console.log(text)}
-      />
     </View>
   );
 };

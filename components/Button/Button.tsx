@@ -38,7 +38,7 @@ const Button = (props: ButtonProps) => {
 
 const styles = StyleSheet.create({
   button: {
-    padding: 20,
+    padding: 15,
     borderRadius: 100,
     width: "100%",
     alignItems: "center",
