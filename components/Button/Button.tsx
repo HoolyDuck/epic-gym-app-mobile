@@ -3,7 +3,6 @@ import {
   Text,
   Pressable,
   StyleSheet,
-  StyleSheetProperties,
 } from "react-native";
 
 enum ButtonVariants {

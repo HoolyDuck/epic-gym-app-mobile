@@ -2,6 +2,7 @@ const Colors = {
   PRIMARY: "#ADFF00",
 
   BG: "#2A2A2A",
+  BG_DARK: "#1E1E1E",
   WHITE: "#FFFFFF",
   BLACK: "#000000",
 

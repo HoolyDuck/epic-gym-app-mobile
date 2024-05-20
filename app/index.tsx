@@ -27,6 +27,7 @@ const Index = () => {
     >
       <Text>WellCum</Text>
       <Link href="/login">Login</Link>
+      <Link href="/home">Home</Link>
     </View>
   );
 };

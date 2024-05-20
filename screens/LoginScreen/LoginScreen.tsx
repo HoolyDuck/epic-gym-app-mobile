@@ -8,6 +8,7 @@ import {
 import { styles } from "./styles";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { router } from "expo-router";
 
 type LoginFormData = {
   email: string;
@@ -25,6 +26,10 @@ export const LoginScreen = () => {
       password: "",
     },
   });
+
+  const handleLogin = (data: LoginFormData) => {
+    router.navigate("home");
+  };
 
   return (
     <KeyboardAvoidingView style={styles.container}>
@@ -50,7 +55,7 @@ export const LoginScreen = () => {
         <Text style={styles.forgotPassword}>Forgot password?</Text>
       </View>
       <View style={styles.buttonContainer}>
-        <Button onClick={handleSubmit((data) => console.log(data))}>
+        <Button onClick={handleSubmit(handleLogin)}>
           Login
         </Button>
         <Text style={styles.orText}>or</Text>
