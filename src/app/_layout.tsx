@@ -1,4 +1,4 @@
-import { Colors } from "@/constants";
+import { Colors } from "@/utils/constants";
 import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
 import { useCallback } from "react";

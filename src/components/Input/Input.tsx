@@ -1,4 +1,4 @@
-import { Colors } from "@/constants";
+import { Colors } from "@/utils/constants";
 import {
   Control,
   Controller,

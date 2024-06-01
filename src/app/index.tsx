@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import { Link, SplashScreen } from "expo-router";
-import { Colors } from "@/constants";
+import { Colors } from "@/utils/constants";
 
 const Index = () => {
 
