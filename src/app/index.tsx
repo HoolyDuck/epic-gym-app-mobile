@@ -3,12 +3,8 @@ import { Link, SplashScreen } from "expo-router";
 import { Colors } from "@/utils/constants";
 
 const Index = () => {
-
-
   return (
-    <View
-      style={styles.container}
-    >
+    <View style={styles.container}>
       <Text>WellCum</Text>
       <Link href="/login">Login</Link>
       <Link href="/home">Home</Link>

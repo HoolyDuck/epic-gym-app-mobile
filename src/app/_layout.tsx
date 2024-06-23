@@ -1,8 +1,10 @@
+import { store } from "@/lib/store/store";
 import { Colors } from "@/utils/constants";
 import { useFonts } from "expo-font";
 import { SplashScreen, Stack } from "expo-router";
 import { useCallback } from "react";
 import { View, StyleSheet } from "react-native";
+import { Provider } from "react-redux";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -23,16 +25,18 @@ export default function RootLayout() {
   }
 
   return (
-    <View
-      onLayout={onLayoutRootView}
-      style={styles.container}
-    >
-      <Stack
-        screenOptions={{
-          headerShown: false,
-        }}
-      />
-    </View>
+    <Provider store={store}>
+      <View
+        onLayout={onLayoutRootView}
+        style={styles.container}
+      >
+        <Stack
+          screenOptions={{
+            headerShown: false,
+          }}
+        />
+      </View>
+    </Provider>
   );
 }
 

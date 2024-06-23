@@ -1,14 +1,8 @@
 import { Button, ButtonVariants, Input } from "@/components";
-import {
-  View,
-  Text,
-  KeyboardAvoidingView,
-  TouchableWithoutFeedback,
-} from "react-native";
+import { View, Text, KeyboardAvoidingView } from "react-native";
 import { styles } from "./styles";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { router } from "expo-router";
+import { useLogin } from "@/lib/hooks";
 
 type LoginFormData = {
   email: string;
@@ -16,6 +10,8 @@ type LoginFormData = {
 };
 
 export const LoginScreen = () => {
+  const { handleLogin } = useLogin();
+
   const {
     control,
     handleSubmit,
@@ -26,10 +22,6 @@ export const LoginScreen = () => {
       password: "",
     },
   });
-
-  const handleLogin = (data: LoginFormData) => {
-    router.navigate("home");
-  };
 
   return (
     <KeyboardAvoidingView style={styles.container}>
@@ -55,9 +47,7 @@ export const LoginScreen = () => {
         <Text style={styles.forgotPassword}>Forgot password?</Text>
       </View>
       <View style={styles.buttonContainer}>
-        <Button onClick={handleSubmit(handleLogin)}>
-          Login
-        </Button>
+        <Button onClick={handleSubmit(handleLogin)}>Login</Button>
         <Text style={styles.orText}>or</Text>
         <Button
           onClick={() => console.log("Google button clicked")}
