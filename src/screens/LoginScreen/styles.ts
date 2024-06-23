@@ -19,11 +19,10 @@ const styles = StyleSheet.create({
   logoContainer: {
     alignItems: "center",
     display: "flex",
+    gap: 10,
   },
   loginText: {
-    color: Colors.WHITE,
     fontSize: 48,
-    fontFamily: "MontserratBold",
   },
   form: {
     display: "flex",
@@ -34,16 +33,10 @@ const styles = StyleSheet.create({
   forgotPassword: {
     color: Colors.TEXT_MUTE,
     textAlign: "right",
-    fontFamily: "Montserrat",
-    fontSize: 16,
-    lineHeight: 20,
   },
   orText: {
     color: Colors.TEXT_MUTE,
     textAlign: "center",
-    fontFamily: "Montserrat",
-    fontSize: 16,
-    lineHeight: 20,
   },
   buttonContainer: {
     width: "100%",
@@ -60,16 +53,10 @@ const styles = StyleSheet.create({
 
   signupText: {
     color: Colors.PRIMARY,
-    fontFamily: "MontserratBold",
-    fontSize: 16,
-    lineHeight: 20,
   },
 
   errorText: {
     color: "red",
-    fontFamily: "Montserrat",
-    fontSize: 12,
-    lineHeight: 16,
     paddingHorizontal: 20,
   },
 });

@@ -12,6 +12,7 @@ import {
   Text,
   View,
 } from "react-native";
+import { AppText } from "../AppText/AppText";
 
 type Props<T extends FieldValues> = Partial<ControllerProps<T>>;
 
@@ -21,7 +22,7 @@ type InputProps = Props<any> &
     error?: string;
   };
 
-const Input = (props: InputProps) => {
+const AppInput = (props: InputProps) => {
   const { control, rules, name, error, ...rest } = props;
 
   return (
@@ -39,7 +40,7 @@ const Input = (props: InputProps) => {
             placeholderTextColor={Colors.TEXT_MUTE}
             {...rest}
           />
-          {error && <Text style={styles.errorText}>{error}</Text>}
+          {error && <AppText style={styles.errorText}>{error}</AppText>}
         </View>
       )}
       name={name}
@@ -79,11 +80,9 @@ const styles = StyleSheet.create({
     position: "absolute",
     color: Colors.ERROR,
     fontSize: 12,
-    lineHeight: 16,
-    fontFamily: "Montserrat",
     paddingLeft: 20,
     bottom: -17,
   },
 });
 
-export { Input };
+export { AppInput };
