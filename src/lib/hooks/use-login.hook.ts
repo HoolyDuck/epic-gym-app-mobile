@@ -1,6 +1,6 @@
 import { useLoginMutation } from "@/lib/apis/auth.api";
-import { asyncStorageHelper } from "@/utils/helpers";
-import { AsyncStorageKeys } from "@/utils/enums";
+import { asyncStorageHelper } from "@/common/helpers";
+import { AsyncStorageKeys } from "@/common/enums";
 import { router } from "expo-router";
 
 type LoginFormData = {

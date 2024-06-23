@@ -1,4 +1,4 @@
-import { Colors } from "@/utils/constants";
+import { Colors } from "@/common/constants";
 import { StyleSheet, Text, TextProps } from "react-native";
 
 type AppTextProps = TextProps & {

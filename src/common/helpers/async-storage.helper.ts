@@ -1,18 +1,18 @@
-import { SecureStoreKeys } from "../enums";
+import { AsyncStorageKeys } from "../enums";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const saveValue = async (
-  key: SecureStoreKeys,
+  key: AsyncStorageKeys,
   value: string
 ): Promise<void> => {
   AsyncStorage.setItem(key, value);
 };
 
-const getValue = async (key: SecureStoreKeys): Promise<string | null> => {
+const getValue = async (key: AsyncStorageKeys): Promise<string | null> => {
   return AsyncStorage.getItem(key);
 };
 
-const deleteValue = async (key: SecureStoreKeys): Promise<void> => {
+const deleteValue = async (key: AsyncStorageKeys): Promise<void> => {
   AsyncStorage.removeItem(key);
 };
 
