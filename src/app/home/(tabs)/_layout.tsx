@@ -9,6 +9,7 @@ export default function Home() {
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: Colors.PRIMARY,
+        tabBarLabelPosition: "below-icon",
         tabBarStyle: {
           backgroundColor: Colors.BG_DARK,
           borderTopWidth: 0,
