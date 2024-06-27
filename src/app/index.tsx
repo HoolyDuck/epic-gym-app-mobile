@@ -1,14 +1,10 @@
 import { StyleSheet, Text, View } from "react-native";
 import { Link, SplashScreen } from "expo-router";
-import { Colors } from "@/utils/constants";
+import { Colors } from "@/common/constants";
 
 const Index = () => {
-
-
   return (
-    <View
-      style={styles.container}
-    >
+    <View style={styles.container}>
       <Text>WellCum</Text>
       <Link href="/login">Login</Link>
       <Link href="/home">Home</Link>

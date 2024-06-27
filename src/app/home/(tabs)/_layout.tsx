@@ -1,4 +1,4 @@
-import { Colors } from "@/utils/constants";
+import { Colors } from "@/common/constants";
 import { FontAwesome } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 import { StyleSheet, View, Text } from "react-native";
@@ -9,6 +9,7 @@ export default function Home() {
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: Colors.PRIMARY,
+        tabBarLabelPosition: "below-icon",
         tabBarStyle: {
           backgroundColor: Colors.BG_DARK,
           borderTopWidth: 0,

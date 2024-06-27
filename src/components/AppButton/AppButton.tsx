@@ -1,11 +1,8 @@
-import { Colors } from "@/utils/constants";
-import {
-  Text,
-  Pressable,
-  StyleSheet,
-} from "react-native";
+import { Colors } from "@/common/constants";
+import { Text, Pressable, StyleSheet } from "react-native";
+import { AppText } from "../AppText/AppText";
 
-enum ButtonVariants {
+enum AppButtonVariants {
   PRIMARY = "primary",
   SECONDARY = "secondary",
 }
@@ -13,12 +10,14 @@ enum ButtonVariants {
 type ButtonProps = {
   children: React.ReactNode;
   onClick?: () => void;
-  variant?: ButtonVariants;
+  variant?: AppButtonVariants;
 };
 
-const Button = (props: ButtonProps) => {
+const AppButton = (props: ButtonProps) => {
   const bgColor =
-    props.variant === ButtonVariants.SECONDARY ? Colors.WHITE : Colors.PRIMARY;
+    props.variant === AppButtonVariants.SECONDARY
+      ? Colors.WHITE
+      : Colors.PRIMARY;
 
   const btnStyles = {
     ...styles.button,
@@ -31,7 +30,12 @@ const Button = (props: ButtonProps) => {
       style={btnStyles}
       onPress={props.onClick}
     >
-      <Text style={styles.buttonText}>{props.children}</Text>
+      <AppText
+        weight="bold"
+        style={styles.buttonText}
+      >
+        {props.children}
+      </AppText>
     </Pressable>
   );
 };
@@ -44,12 +48,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderWidth: 1,
   },
-
   buttonText: {
-    fontFamily: "MontserratBold",
-    fontSize: 16,
-    lineHeight: 20,
+    color: Colors.BLACK,
   },
 });
 
-export { Button, ButtonVariants };
+export { AppButton, AppButtonVariants };
